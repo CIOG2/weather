@@ -1,0 +1,109 @@
+.input__search{
+    width: 90vw;
+    min-width: 250px;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    transition: all 0.2s;
+}
+
+
+.input__search--active{
+    border-radius: 20px 20px 0px 0px;
+}
+
+
+.combobox__popover{
+    border: none;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.combobox__option{
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:last-child{
+        border-radius: 0px 0px 20px 20px;
+    }
+}
+
+
+//LIGHT THEME
+.input__search--light{
+    background-color: var(--light-theme);
+    color: var(--light-text);
+
+    &::placeholder{
+        color: var(--light-text);
+    }
+
+    &:hover{
+        box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 30%);
+    }
+
+    &:focus{
+        box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 50%);
+    }
+}
+
+.combobox__popover--light{
+    background-color: var(--light-theme);
+    box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 50%);
+}
+
+.combobox__option--light{
+    background-color: var(--light-theme);
+    color: var(--light-text);
+
+    &:focus,
+    &:active, 
+    &:hover,
+    &[aria-selected="true"]{
+        background-color: var(--ligth-secondary);
+    }
+}
+
+
+//DARK THEME
+.input__search--dark{
+    background-color: var(--dark-theme);
+    color: var(--dark-text);
+
+    &::placeholder{
+        color: var(--dark-text);
+        opacity: .6;
+    }
+
+    &:hover{
+        box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.3);
+    }
+    
+    &:focus{
+        box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.combobox__popover--dark{
+    background-color: var(--dark-theme);
+    box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 0.5);
+}
+
+.combobox__option--dark{
+    background-color: var(--dark-theme);
+    color: var(--dark-text);
+
+    &:focus,
+    &:active, 
+    &:hover,
+    &[aria-selected="true"]{
+        background-color: var(--dark-secondary);
+    }
+}

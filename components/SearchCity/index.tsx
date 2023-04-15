@@ -13,10 +13,10 @@ import {
     ComboboxOption, 
 } from '@reach/combobox';
 import { useContext } from 'react';
-
+import { City } from '@interfaces/index';
 
 const SearchCity = () => {
-    const { mode } = useContext(WeatherContext);
+    const { mode, setCity, fetchWeatherCity } = useContext(WeatherContext);
 
     const {
         ready,
@@ -32,19 +32,17 @@ const SearchCity = () => {
         try {
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
-            consulta(lat, lng);
+            const objCity: City = {
+                city: address,
+                latitud: lat,
+                longitud: lng,
+                autoDetected: false,
+            }
+            setCity(objCity);
+            fetchWeatherCity(objCity);
         } catch (error) {
             console.log(error);
         }
-    }
-
-    const consulta = async (lat: number, lng: number) => {
-         const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&lang=sp&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
-        // const URL = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}&include=minutely`
-        
-        const response = await fetch(URL);
-        const data = await response.json();
-        console.log(data);
     }
 
     return (

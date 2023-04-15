@@ -1,8 +1,22 @@
 :root{
-  --dark-color:  #0C1013;
+  --dark-color:  #141216;
   --text-white: white;
   --text-gray: #9b9d9f;
   --max-width: 1400px;
+
+
+  //DARK THEME
+  --dark-theme: #1d1b1f;
+  --dark-secondary: #26222a;
+  --dark-third: #141216;
+  --dark-text: white;
+
+
+  //LIGHT THEME
+  --light-theme: white;
+  --ligth-secondary: #bbbbbb;
+  --light-third: #e0e0e0;
+  --light-text: black;
 }
 
 *{
@@ -30,7 +44,6 @@ body{
   width: 100%;
   height: auto;
   min-height: 400px;
-  background-color: var(--dark-color);
 }
 
 #__next{
@@ -50,7 +63,6 @@ body{
   width: 100%;
   min-height: 100vh;
 }
-
 
 p,
 a,

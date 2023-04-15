@@ -1,0 +1,85 @@
+.header{
+    position: relative;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1700px;
+    padding: 10px;
+}
+
+.header__nav{
+    position: relative;
+    display: grid;
+    place-items: center;
+    grid-template-areas: 'logo none themeButton'
+                         'search search search';
+    width: 100%;
+    height: auto;
+
+
+    @media screen and (min-width: 768px){
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+.nav__search{
+    position: relative;
+    display: flex;
+    place-items: center;
+    margin-top: 15px;
+    grid-area: search;
+
+    @media screen and (min-width: 768px){
+        margin-top: 0px;
+    }
+}
+.nav__theme--button{
+    position: relative;
+    grid-area: themeButton;
+    border: none;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 190px;
+    }
+}
+
+
+
+//LIGHT THEME
+.nav__logo--image--light{
+    grid-area: logo;
+    width: 190px;
+    filter: invert(100%);
+
+    @media screen and (min-width: 768px){
+        margin-right: 40px;
+    }
+    @media screen and (min-width: 795px){
+        margin-right: 50px;
+    }
+    @media screen and (min-width: 825px){
+        margin-right: 0px;
+    }
+}
+
+//DARK THEME
+.nav__logo--image--dark{
+    grid-area: logo;
+    width: 190px;
+    @media screen and (min-width: 768px){
+        margin-right: 40px;
+    }
+    @media screen and (min-width: 795px){
+        margin-right: 50px;
+    }
+    @media screen and (min-width: 825px){
+        margin-right: 0px;
+    }
+}

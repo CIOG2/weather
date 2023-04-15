@@ -5,14 +5,17 @@ import Styles from '@components/Header/styles.module.scss';
 import { useContext } from "react";
 import { WeatherContext } from "@context/WeatherContext";
 
+type libraries = 'places' | 'drawing' | 'geometry' | 'localContext' | 'visualization';
+const libraries: libraries[] = ['places'];
+
 const Header = () => {
     const { mode } = useContext(WeatherContext)
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
-        libraries: ["places"],
+        libraries,
     });
-
+    
     return (
         <header className={Styles['header']}>
             <nav className={Styles['header__nav']}>
@@ -20,7 +23,7 @@ const Header = () => {
                     <img 
                         src="/images/logo.png" 
                         alt="logo" 
-                        className={Styles['nav__logo--image--' + mode]}
+                        className={Styles[`nav__logo--image--${mode}`]}
                     />
                 </picture>
                 {isLoaded && 

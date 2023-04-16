@@ -1,0 +1,20 @@
+.article{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+
+//LIGHT THEME
+.article--light{
+    background-color: var(--light-theme);
+}
+
+//DARK THEME
+.article--dark{
+    background-color: var(--dark-theme);
+}

@@ -21,7 +21,7 @@ const Header = () => {
             <nav className={Styles[`header__nav`]}>
                 <picture className={Styles[`nav__logo`]}>
                     <img 
-                        src="/images/logo.png" 
+                        src="/images/newLogo.png" 
                         alt="logo" 
                         className={Styles[`nav__logo--image--${mode}`]}
                     />

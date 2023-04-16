@@ -41,7 +41,6 @@
     border-radius: 50%;
 }
 
-
 .location{
     font-size: 1.5rem;
     font-weight: 500;
@@ -76,8 +75,8 @@
 }
 
 .container__picture--light{
-    background-color: rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 5%);
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 15%);
 }
 
 .article__main--title-light,
@@ -94,10 +93,6 @@
     background-color: var(--dark-theme);
 }
 
-.container__picture--dark{
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0px 0px 10px 5px rgb(255 255 255 / 5%);
-}
 
 .article__main--title-dark,
 .container__title--dark,

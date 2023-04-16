@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { WeatherContext } from "./";
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { City } from "@interfaces/index";
+import { generateWeek } from "@utils/generateWeek";
 
 interface WeatherProviderProps {
     children: ReactNode;
@@ -14,7 +15,8 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [mode, setMode] = useLocalStorage('ThemeMode', 'dark');
     const [city, setCity] = useLocalStorage('City', {} as City);
-    const [weatherCity, setWeatherCity] = useState();
+    const [weatherCity, setWeatherCity] = useState({});
+    const [weatherWeek, setWeatherWeek] = useState<any>([]);
 
     const fetchWeatherCity = async ({ city, latitud, longitud, autoDetected}: City) => {
         try {
@@ -30,6 +32,19 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
             console.error('Ha ocurrido un error: ', error);
         }
     };
+
+    const fetchWeatherWeek = async ({ latitud, longitud }: City) => {
+        try {
+            const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&units=metric&lang=sp&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
+            const response = await fetch(URL);
+            const data = await response.json();
+            const week = generateWeek(data);
+            setWeatherWeek(week);
+        } catch (error) {
+            console.error('Ha ocurrido un error: ', error);
+        }
+    };
+
 
     useEffect(() => {
         if (!city.autoDetected && !city.city) {
@@ -49,15 +64,19 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
     }, [city, setCity]);
 
     useEffect(() => {
-        if (mode && city && weatherCity) {
-            setLoading(true);
+
+        if (mode && city && weatherWeek.length > 1 && Object.entries(weatherCity).length !== 0) {
+            setTimeout(() => {
+                setLoading(true);
+            }, 1500);
         }
 
-        if (city && validator) {
+        if (Object.entries(city).length !== 0 && validator) {
+            fetchWeatherWeek(city);
             fetchWeatherCity(city);
             validator = false;
         }
-    }, [city, mode, weatherCity]);
+    }, [city, mode, weatherCity, weatherWeek]);
 
 
     return (
@@ -68,7 +87,10 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
                 city,
                 setCity,
                 loading,
+                weatherCity,
                 fetchWeatherCity,
+                weatherWeek,
+                fetchWeatherWeek,
             }}
         >
             {children}

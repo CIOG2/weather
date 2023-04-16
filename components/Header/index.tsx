@@ -5,8 +5,8 @@ import Styles from '@components/Header/styles.module.scss';
 import { useContext } from "react";
 import { WeatherContext } from "@context/WeatherContext";
 
-type libraries = 'places' | 'drawing' | 'geometry' | 'localContext' | 'visualization';
-const libraries: libraries[] = ['places'];
+type libraries = `places` | `drawing` | `geometry` | `localContext` | `visualization`;
+const libraries: libraries[] = [`places`];
 
 const Header = () => {
     const { mode } = useContext(WeatherContext)
@@ -17,9 +17,9 @@ const Header = () => {
     });
     
     return (
-        <header className={Styles['header']}>
-            <nav className={Styles['header__nav']}>
-                <picture className={Styles['nav__logo']}>
+        <header className={Styles[`header`]}>
+            <nav className={Styles[`header__nav`]}>
+                <picture className={Styles[`nav__logo`]}>
                     <img 
                         src="/images/logo.png" 
                         alt="logo" 
@@ -27,11 +27,11 @@ const Header = () => {
                     />
                 </picture>
                 {isLoaded && 
-                    <div className={Styles['nav__search']}>
+                    <div className={Styles[`nav__search`]}>
                         <SearchCity />
                     </div>
                 }
-                <div className={Styles['nav__theme--button']}>
+                <div className={Styles[`nav__theme--button`]}>
                     <ChangeTheme />
                 </div>
 

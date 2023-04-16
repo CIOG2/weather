@@ -56,19 +56,19 @@ const SearchCity = () => {
                     disabled={!ready}
                 placeholder="Buscar ciudad..."
                 className={`
-                    ${Styles['input__search']} ${Styles[`input__search--${mode}`]}
-                    ${(data.length >= 1) && Styles['input__search--active']}
+                    ${Styles[`input__search`]} ${Styles[`input__search--${mode}`]}
+                    ${(data.length >= 1) && Styles[`input__search--active`]}
                     
             `}/>
             <ComboboxPopover
-                className={`${Styles['combobox__popover']} ${Styles[`combobox__popover--${mode}`]}`}
+                className={`${Styles[`combobox__popover`]} ${Styles[`combobox__popover--${mode}`]}`}
             >
                 <ComboboxList>
-                    {status === 'OK' && data.map(({ place_id, description, structured_formatting }) => (
+                    {status === `OK` && data.map(({ place_id, description, structured_formatting }) => (
                         <ComboboxOption 
                             key={place_id}
                             value={description} 
-                            className={`${Styles['combobox__option']} ${Styles[`combobox__option--${mode}`]}`}
+                            className={`${Styles[`combobox__option`]} ${Styles[`combobox__option--${mode}`]}`}
                         >
                             <OptionCity
                                 mainText={structured_formatting.main_text}

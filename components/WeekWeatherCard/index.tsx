@@ -2,6 +2,7 @@ import Styles from '@components/WeekWeatherCard/styles.module.scss';
 import { WeatherContext } from '@context/WeatherContext';
 import { useContext } from 'react';
 import { Day } from '@components/WeekWeatherCard/Day';
+
 const WeekWeatherCard = () => {
     const { mode, weatherWeek } = useContext(WeatherContext);
     

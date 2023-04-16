@@ -14,10 +14,10 @@ const App = () => {
             {loading 
                 ?(
                     <div
-                        className={`${Styles['body']} ${Styles[`body--${mode}`]}`}
+                        className={`${Styles[`body`]} ${Styles[`body--${mode}`]}`}
                     >
                         <Header />
-                        <main className={Styles['main']}>
+                        <main className={Styles[`main`]}>
                             <aside className={Styles[`main__aside`]}>
                                 <WeatherCard />
                                 <WeekWeatherCard/>

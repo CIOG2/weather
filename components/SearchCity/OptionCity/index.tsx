@@ -6,22 +6,22 @@ const OptionCity = ({ mainText, description }: any) => {
     const { mode } = useContext(WeatherContext);
 
     return (
-        <div className={Styles['center']}>
-            <picture className={Styles['container__img']}>
+        <div className={Styles[`center`]}>
+            <picture className={Styles[`container__img`]}>
                 <img 
-                    className={Styles['image']}
+                    className={Styles[`image`]}
                     src={`/svg/location-${mode}.svg`}
                     alt="location icon"
                 />
             </picture>
-            <div className={Styles['container__text']}>
+            <div className={Styles[`container__text`]}>
                 <h4 
-                    className={`${Styles['title']} ${Styles[`title--${mode}`]}`}
+                    className={`${Styles[`title`]} ${Styles[`title--${mode}`]}`}
                 > 
                     {mainText} 
                 </h4>
                 <span 
-                    className={`${Styles['description']} ${Styles[`description--${mode}`]}`}
+                    className={`${Styles[`description`]} ${Styles[`description--${mode}`]}`}
                 > 
                     {description} 
                 </span>

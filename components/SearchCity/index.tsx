@@ -16,7 +16,7 @@ import { useContext } from 'react';
 import { City } from '@interfaces/index';
 
 const SearchCity = () => {
-    const { mode, setCity, fetchWeatherCity } = useContext(WeatherContext);
+    const { mode, setCity, fetchWeatherCity, fetchWeatherWeek } = useContext(WeatherContext);
 
     const {
         ready,
@@ -40,6 +40,7 @@ const SearchCity = () => {
             }
             setCity(objCity);
             fetchWeatherCity(objCity);
+            fetchWeatherWeek(objCity);
         } catch (error) {
             console.log(error);
         }

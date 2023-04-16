@@ -1,6 +1,4 @@
-import Styles from '@components/SearchCity/styles.module.scss';
-import { OptionCity } from './OptionCity';
-import { WeatherContext } from '@context/WeatherContext';
+import { useContext } from 'react';
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
@@ -12,8 +10,10 @@ import {
     ComboboxList,
     ComboboxOption, 
 } from '@reach/combobox';
-import { useContext } from 'react';
-import { City } from '@interfaces/index';
+import { WeatherContext } from '@context/WeatherContext';
+import { OptionCity } from '@components/SearchCity/OptionCity';
+import { CityI } from '@interfaces/index';
+import Styles from '@components/SearchCity/styles.module.scss';
 
 const SearchCity = () => {
     const { mode, setCity, fetchWeatherCity, fetchWeatherWeek } = useContext(WeatherContext);
@@ -32,7 +32,7 @@ const SearchCity = () => {
         try {
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
-            const objCity: City = {
+            const objCity: CityI = {
                 city: address,
                 latitud: lat,
                 longitud: lng,
@@ -42,7 +42,7 @@ const SearchCity = () => {
             fetchWeatherCity(objCity);
             fetchWeatherWeek(objCity);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 

@@ -1,16 +1,16 @@
 import { createContext } from 'react';
-import { City } from '@interfaces/index';
+import { CityI, WeatherI, WeatherWeekI } from '@interfaces/index';
 
 interface ContextProps {
     mode: 'dark' | 'light';
     setMode: (mode: 'dark' | 'light') => void;
-    city: {};
-    setCity: (obj: City ) => void;
+    city: CityI;
+    setCity: (obj: CityI ) => void;
     loading: boolean;
-    weatherCity: any;
-    fetchWeatherCity: (obj: City) => void;
-    weatherWeek: any;
-    fetchWeatherWeek: (obj: City) => void;
+    weatherCity: WeatherI;
+    fetchWeatherCity: (obj: CityI) => void;
+    weatherWeek: WeatherWeekI[];
+    fetchWeatherWeek: (obj: CityI) => void;
 }
 
 const WeatherContext = createContext({} as ContextProps);

@@ -1,4 +1,4 @@
-import Styles from '@components/ChangeTheme/Styles.module.scss';
+import Styles from '@components/ChangeTheme/styles.module.scss';
 import { WeatherContext } from '@context/WeatherContext';
 import { useContext } from 'react';
 

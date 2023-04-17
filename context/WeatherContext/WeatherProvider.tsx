@@ -2,7 +2,7 @@ import { useLoadScript } from "@react-google-maps/api";
 import { ReactNode, useEffect, useState } from "react";
 import { WeatherContext } from "./";
 import { useLocalStorage } from "@hooks/useLocalStorage";
-import { CityI, WeatherI, WeatherWeekI, WeekFecthDataI } from "@interfaces/index";
+import { CityI, WeatherI, WeatherWeekI, WeekFecthDataI, WeatherHoursI } from "@interfaces/index";
 import { generateWeek } from "@utils/generateWeek";
 
 interface WeatherProviderProps {
@@ -22,6 +22,7 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
     const [city, setCity] = useLocalStorage(`City`, {} as CityI);
     const [weatherCity, setWeatherCity] = useState<WeatherI>({} as WeatherI);
     const [weatherWeek, setWeatherWeek] = useState<WeatherWeekI[]>([] as WeatherWeekI[]);
+    const [weatherHour, setWeatherHour] = useState<WeatherHoursI[]>([] as WeatherHoursI[]);
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
@@ -49,7 +50,8 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
             const response = await fetch(URL);
             const data: WeekFecthDataI = await response.json();
             const week = generateWeek(data);            
-            setWeatherWeek(week);
+            setWeatherWeek(week.days);
+            setWeatherHour(week.weatherHour);
         } catch (error) {
             console.error(`Ha ocurrido un error: `, error);
         }
@@ -102,6 +104,7 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
                 weatherWeek,
                 fetchWeatherWeek,
                 isLoaded,
+                weatherHour,
             }}
         >
             {children}

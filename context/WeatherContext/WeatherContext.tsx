@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { CityI, WeatherI, WeatherWeekI } from '@interfaces/index';
+import { CityI, WeatherI, WeatherWeekI, WeatherHoursI } from '@interfaces/index';
 
 interface ContextProps {
     mode: 'dark' | 'light';
@@ -12,6 +12,7 @@ interface ContextProps {
     weatherWeek: WeatherWeekI[];
     fetchWeatherWeek: (obj: CityI) => void;
     isLoaded: boolean; 
+    weatherHour: WeatherHoursI[];
 }
 
 const WeatherContext = createContext({} as ContextProps);

@@ -6,7 +6,6 @@ import Styles from '@components/WeatherDetails/styles.module.scss';
 
 const WeatherDetails = () => {
     const { mode, weatherCity, weatherHour } = useContext(WeatherContext);
-    console.log(weatherHour);
     const sunrise = new Date(weatherCity?.sys.sunrise * 1000).toLocaleTimeString().split(':', 2).join(':');
     const sunset = new Date(weatherCity?.sys.sunset * 1000).toLocaleTimeString().split(':', 2).join(':');
 

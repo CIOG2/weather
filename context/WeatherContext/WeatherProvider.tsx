@@ -1,3 +1,4 @@
+import { useLoadScript } from "@react-google-maps/api";
 import { ReactNode, useEffect, useState } from "react";
 import { WeatherContext } from "./";
 import { useLocalStorage } from "@hooks/useLocalStorage";
@@ -8,7 +9,11 @@ interface WeatherProviderProps {
     children: ReactNode;
 }
 
+
 let validator = true;
+type libraries = `places` | `drawing` | `geometry` | `localContext` | `visualization`;
+const libraries: libraries[] = [`places`];
+
 
 const WeatherProvider = ({ children }: WeatherProviderProps) => {
 
@@ -17,6 +22,11 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
     const [city, setCity] = useLocalStorage(`City`, {} as CityI);
     const [weatherCity, setWeatherCity] = useState<WeatherI>({} as WeatherI);
     const [weatherWeek, setWeatherWeek] = useState<WeatherWeekI[]>([] as WeatherWeekI[]);
+
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
+        libraries,
+    });    
 
     const fetchWeatherCity = async ({ city, latitud, longitud, autoDetected}: CityI) => {
         try {
@@ -91,6 +101,7 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
                 fetchWeatherCity,
                 weatherWeek,
                 fetchWeatherWeek,
+                isLoaded,
             }}
         >
             {children}

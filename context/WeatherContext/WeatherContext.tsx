@@ -11,6 +11,7 @@ interface ContextProps {
     fetchWeatherCity: (obj: CityI) => void;
     weatherWeek: WeatherWeekI[];
     fetchWeatherWeek: (obj: CityI) => void;
+    isLoaded: boolean; 
 }
 
 const WeatherContext = createContext({} as ContextProps);

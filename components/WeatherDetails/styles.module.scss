@@ -9,6 +9,10 @@
     height: auto;
     padding: 20px;
     border-radius: 20px;
+
+    @media (min-width: 1370px){
+        justify-content: flex-start;
+    }
 }
 
 .article__container{

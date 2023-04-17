@@ -1,4 +1,4 @@
-import { WeekFecthDataI, WeatherWeekI, GenerateWeekI, weatherHoursI } from '@interfaces/index' ;
+import { WeekFecthDataI, WeatherWeekI, GenerateWeekI, WeatherHoursI } from '@interfaces/index' ;
 
 const generateWeek = (data: WeekFecthDataI) => {
     const list = data.list;
@@ -31,7 +31,7 @@ const generateWeek = (data: WeekFecthDataI) => {
 const extraerDatos = (data: GenerateWeekI[]) => {
     const actualDay = new Date().toLocaleString('en-US', { weekday: 'long' });
     let days: WeatherWeekI[] = [];
-    let weatherHour: weatherHoursI[] = [];
+    let weatherHour: WeatherHoursI[] = [];
     let day = '';
     let dayWeather = '';
     let dayWeatherIcon = '';
@@ -42,7 +42,7 @@ const extraerDatos = (data: GenerateWeekI[]) => {
     for (let i = 0; i < data.length; i++) {
         const element = data[i];
         
-        if(i < 7){
+        if(i < 11){
             const image = element.dayWeatherIcon;
             const temp = element.tempMax;
             let hour = element.hour.split(':', 1).join(':');

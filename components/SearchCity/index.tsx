@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
@@ -17,6 +17,7 @@ import Styles from '@components/SearchCity/styles.module.scss';
 
 const SearchCity = () => {
     const { mode, setCity, fetchWeatherCity, fetchWeatherWeek } = useContext(WeatherContext);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const {
         ready,
@@ -38,6 +39,8 @@ const SearchCity = () => {
                 longitud: lng,
                 autoDetected: false,
             }
+            inputRef.current?.blur();
+            console.log(inputRef.current);
             setCity(objCity);
             fetchWeatherCity(objCity);
             fetchWeatherWeek(objCity);
@@ -49,6 +52,7 @@ const SearchCity = () => {
     return (
         <Combobox onSelect={handleSelect}>
             <ComboboxInput
+                ref={inputRef}
                 value={value}
                 onChange={(e) => {
                     setValue(e.target.value);

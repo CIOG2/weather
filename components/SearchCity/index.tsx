@@ -54,7 +54,7 @@ const SearchCity = () => {
                     setValue(e.target.value);
                 }}
                     disabled={!ready}
-                placeholder="Buscar ciudad..."
+                placeholder="Search your city..."
                 className={`
                     ${Styles[`input__search`]} ${Styles[`input__search--${mode}`]}
                     ${(data.length >= 1) && Styles[`input__search--active`]}

@@ -1,3 +1,5 @@
+$nubes: white;
+
 .body{
     position: relative;
     display: flex;
@@ -6,7 +8,7 @@
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background-color: var(--dark-third);
+    background-color: #3eb5bc;
 }
 
 
@@ -46,7 +48,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50% 50% 50% 0%;
-    background-color: #4c9beb;
+    background-color: $nubes;
     display: inline-block;
     margin-left: -25px;
     z-index: 5;
@@ -56,7 +58,7 @@
     width: 65px;
     height: 65px;
     border-radius: 50% 50% 0% 50%;
-    background-color: #4c9beb;
+    background-color: $nubes;
     display: inline-block;
     z-index: 5;
 }
@@ -65,7 +67,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50% 50% 50% 0%;
-    background-color: #4c9beb;
+    background-color: $nubes;
     display: inline-block;
     margin-left: -20px;
     z-index: 5;
@@ -75,7 +77,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50% 50% 0% 50%;
-    background-color: #4c9beb;
+    background-color: $nubes;
     display: inline-block;
     z-index: 5;
 }

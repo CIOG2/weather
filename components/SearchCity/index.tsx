@@ -40,7 +40,6 @@ const SearchCity = () => {
                 autoDetected: false,
             }
             inputRef.current?.blur();
-            console.log(inputRef.current);
             setCity(objCity);
             fetchWeatherCity(objCity);
             fetchWeatherWeek(objCity);

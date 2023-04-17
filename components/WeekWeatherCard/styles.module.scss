@@ -1,3 +1,12 @@
+.title{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0 0 10px;
+}
+
 .article{
     display: flex;
     flex-direction: column;
@@ -10,11 +19,17 @@
 
 
 //LIGHT THEME
+.title--light{
+    color: var(--light-text);
+}
 .article--light{
     background-color: var(--light-theme);
 }
 
 //DARK THEME
+.title--dark{
+    color: var(--dark-text);
+}
 .article--dark{
     background-color: var(--dark-theme);
 }

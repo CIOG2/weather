@@ -8,19 +8,22 @@ const WeekWeatherCard = () => {
     
     
     return (
-        <article className={`${Styles[`article`]} ${Styles[`article--${mode}`]}`}>
-            {weatherWeek.map((day:any, index:number) =>     
-                <Day
-                    key={index}
-                    day={day.day}
-                    dayWeather={day.dayWeather}
-                    dayWeatherIcon={day.dayWeatherIcon}
-                    tempMin={day.tempMin}
-                    tempMax={day.tempMax}
-                    mode={mode}
-                />
-            )}
-        </article>
+        <>
+            <h2 className={`${Styles[`title`]} ${Styles[`title--${mode}`]}`}>5 Days Forescast</h2>
+            <article className={`${Styles[`article`]} ${Styles[`article--${mode}`]}`}>
+                {weatherWeek.map((day:any, index:number) =>     
+                    <Day
+                        key={index}
+                        day={day.day}
+                        dayWeather={day.dayWeather}
+                        dayWeatherIcon={day.dayWeatherIcon}
+                        tempMin={day.tempMin}
+                        tempMax={day.tempMax}
+                        mode={mode}
+                    />
+                )}
+            </article>
+        </>
     )
 }
 

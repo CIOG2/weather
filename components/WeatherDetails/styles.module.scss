@@ -13,6 +13,9 @@
     @media (min-width: 1370px){
         justify-content: flex-start;
     }
+    @media (min-width: 1400px){
+        gap: 15px;
+    }
 }
 
 .article__container{
@@ -22,6 +25,10 @@
     border-radius: 20px;
     max-width: 550px;
     min-height: 150px;
+
+    @media (min-width: 1400px){
+        height: 140px;
+    }
 }
 
 .title__card{

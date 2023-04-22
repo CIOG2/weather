@@ -1,38 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather
+### Descripción
+##### _Weather es una aplicación web que te permite conocer el clima actual y pronóstico de cualquier ciudad del mundo._
+Para usar Weather, simplemente accede a la página web desde cualquier navegador de internet en cualquier dispositivo que tengas a mano. Una vez en la página web, ingresa el nombre de la ciudad que deseas consultar en la barra de búsqueda y Weather te mostrará la temperatura actual, así como la temperatura mínima y máxima de los próximos 5 días. Además, también te proporciona un mapa de la ubicación de la ciudad y te muestra el pronóstico detallado del clima a lo largo del día.
+##### Visita la página web oficial de [Weather](https://weather-ciog.vercel.app/)
 
-## Getting Started
+### Tecnologías usadas
+![Typescrpt](https://img.shields.io/static/v1?style=for-the-badge&message=Typescript&color=222222&logo=Typescript&logoColor=1572B6&label=)
+![Next.js](https://img.shields.io/static/v1?style=for-the-badge&message=Next.js&color=000000&logo=Next.js&logoColor=FFFFFF&label=)
+![Scss](https://img.shields.io/static/v1?style=for-the-badge&message=Sass&color=CC6699&logo=Sass&logoColor=FFFFFF&label=)
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Requerimientos
+- Node.js
+- yarn
+> Para este proyecto se utilizo yarn como administrador de paquetes 
+>En caso de no tener yarn instalado se puede instalar con el sigiente comando:
+```
+npm install --global yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Llaves para las API key (en la seccion **uso** se dice como conseguirlas)
+ 
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Uso
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### _Instalación del repositorio_
+> Clonar Repositorio con HTTPS:
+```
+git clone https://github.com/CIOG2/weather.git
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> Clonar Repositorio con SSH:
+```
+git clone git@github.com:CIOG2/weather.git
+```
+> En caso de que se haga un fork instalo con el link que se genero.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### _Instalación de dependencias_
 
-## Learn More
+```
+yarn install
+```
+#### _Genera el archivo para las variables de entonrno_
+En la raiz del proyecto debes generar un archivo con nombre **.env.local**
+```
+```
+Una vez generado el archivo dentro del agrega los nombres de las variables de entonrno
+```
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY=
+```
+despues del simbolo igual/= debes agregar tu API key a continuacion te comparto donde encuntreas ambas keys
 
-To learn more about Next.js, take a look at the following resources:
+- **NEXT_PUBLIC_GOOGLE_MAPS_API_KEY**: [Google link](https://cloud.google.com/cloud-console?utm_source=google&utm_medium=cpc&utm_campaign=latam-MX-all-es-dr-BKWS-all-all-trial-e-dr-1605194-LUAC0016056&utm_content=text-ad-none-any-DEV_c-CRE_540885993595-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20Management-Tools_Console-KWID_43700065922079841-kwd-844840188897&utm_term=KW_google%20console-ST_Google%20Console&gclid=Cj0KCQjwi46iBhDyARIsAE3nVrbzdBkWJ7WXclxVoqnEFVH6805WKfngSfaKydof1R5-gzP1x5R7uxUaAuJPEALw_wcB&gclsrc=aw.ds&hl=es)
+- **NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY**: [Open weather link](https://home.openweathermap.org/users/sign_up)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ya que tengas las llaves agrega cada una a su respectivo campo sin agregar espacios ni comillas de ningun tipo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Contribuir
+- Si deseas contribuir al desarrollo de Weather, siéntete libre de hacer un fork de este repositorio y enviar un pull request con tus mejoras.
 
-## Deploy on Vercel
+# Autor
+- Weather fue desarrollado por **Carlos Ivan Ochoa Gomez @CIOG**.- 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Licencia
+- Weather se distribuye bajo la licencia (MIT). Para más información, revisa el archivo LICENSE en este repositorio.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**_Espero que esta información te sea útil. Si necesitas más ayuda, no dudes en preguntar. ¡Que tengas un buen día!_**
